@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DXIA - Diagnóstico por Imagen Ambulante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="pantalla-carga" id="loader"></div>
+
+    <div class="capa-borrosa" id="capaBorrosa"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo_dxia.png" alt="DXIA">
+        </div>
+
+        <nav class="menu-escritorio">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#formacion">Formación</a></li>
+                <li><a href="#casos">Casos</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-hamburguesa" id="btnAbrir">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="cerrar-menu" id="btnCerrar">&times;</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#formacion">Formación</a></li>
+            <li><a href="#casos">Casos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-contenido">
+                <h1>Diagnóstico por imagen ambulante</h1>
+                <p>Servicio especializado de ecografía y diagnóstico para clínicas veterinarias.</p>
+                <a href="#servicios" class="btn-servicios">SERVICIOS</a>
+            </div>
+        </section>
+
+        <section class="propuesta-verde">
+            <h2>Servicio profesional exclusivo para Veterinarios</h2>
+            <p>Informe ecográfico profesional, exclusivo para veterinarios, con interpretación técnica y entrega en PDF en un máximo de 72 horas, prioritaria en casos urgentes.</p>
+        </section>
+
+        <section id="equipo" class="seccion-equipo">
+            <h2>Nuestro Equipo</h2>
+            <p class="subtitulo-equipo">Especialistas en diagnóstico por imagen veterinario.</p>
+            <div class="grid-equipo">
+                <div class="tarjeta-equipo">
+                    <div class="foto-placeholder"><img src="img/maria-teresa.jpg" alt="Maria-Teresa"></div>
+                    <h3>Maria-Teresa</h3>
+                    <p class="puesto">Fundadora y Veterinaria Especialista</p>
+                </div>
+                <div class="tarjeta-equipo">
+                    <div class="foto-placeholder"><img src="img/esther.jpg" alt="Esther"></div>
+                    <h3>Esther</h3>
+                    <p class="puesto">Especialista en organizar la información diagnóstica</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="seccion-servicios">
+            <h2>Servicios de Diagnóstico</h2>
+            <div class="grid-servicios">
+                <div class="tarjeta-servicio">
+                    <h3>Ecografía</h3>
+                    <p>Abdominal completa, de contraste y resolución de dudas diagnósticas en tejidos blandos.</p>
+                </div>
+                <div class="tarjeta-servicio">
+                    <h3>Ecocardiografía</h3>
+                    <p>Estudio funcional y morfológico del sistema cardíaco con tecnología Doppler de alta resolución.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="formacion" class="seccion-formacion">
+            <h2>Formación DXIA</h2>
+            <p>Ofrecemos talleres prácticos y estancias formativas personalizadas para clínicas y veterinarios que deseen perfeccionar sus habilidades en ecografía y diagnóstico por imagen.</p>
+        </section>
+
+        <section id="casos" class="seccion-contacto">
+            <h2>Solicitar Tarifas y Servicios</h2>
+            <p>Rellena el formulario para recibir nuestro dossier completo de tarifas exclusivo para centros veterinarios.</p>
+            
+            <form class="formulario-dxia" onsubmit="event.preventDefault();">
+                <div class="grupo-input">
+                    <label for="nombre">Nombre del Veterinario / Clínica *</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="telefono">Teléfono de Contacto</label>
+                    <input type="tel" id="telefono">
+                </div>
+                <div class="grupo-input">
+                    <label for="mensaje">Mensaje o Consulta</label>
+                    <textarea id="mensaje" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Solicitar Información</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
