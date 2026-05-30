@@ -7,20 +7,36 @@ const loader = document.getElementById('loader');
 
 window.addEventListener('load', () => {
     setTimeout(() => {
-        loader.classList.add('desaparecer');
+        loader.classList.add('salir-izquierda');
     }, 200);
+});
+
+function comprobarHistorial() {
+    loader.classList.remove('entrar-derecha', 'preparar-derecha');
+    loader.classList.add('salir-izquierda');
+}
+
+window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+        comprobarHistorial();
+    }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    const entradas = performance.getEntriesByType("navigation");
+    if (entradas.length > 0 && entradas[0].type === "back_forward") {
+        comprobarHistorial();
+    }
 });
 
 window.addEventListener('beforeunload', () => {
     if (menuLateral.classList.contains('active')) {
         menuLateral.classList.remove('active');
-        menuLateral.classList.add('recarga-cerrar');
         capaBorrosa.classList.remove('active');
     }
 });
 
 function abrirMenu() {
-    menuLateral.classList.remove('recarga-cerrar');
     menuLateral.classList.add('active');
     capaBorrosa.classList.add('active');
 }
@@ -36,26 +52,25 @@ capaBorrosa.addEventListener('click', cerrarMenu);
 
 enlacesMenu.forEach(enlace => {
     enlace.addEventListener('click', (e) => {
-        e.preventDefault();
-        cerrarMenu();
-        
         const ruta = enlace.getAttribute('href');
-        const idSeccion = ruta.replace('/', '');
-        const elementoDestino = document.getElementById(idSeccion);
-        
-        if (elementoDestino) {
-            window.history.pushState(null, '', ruta);
-            elementoDestino.scrollIntoView({
-                behavior: 'smooth'
-            });
+
+        if (ruta.includes('/') && !ruta.startsWith('#')) {
+            e.preventDefault();
+            cerrarMenu();
+            
+            loader.classList.remove('salir-izquierda');
+            loader.classList.add('preparar-derecha');
+            
+            void loader.offsetWidth; 
+            
+            loader.classList.remove('preparar-derecha');
+            loader.classList.add('entrar-derecha');
+            
+            setTimeout(() => {
+                window.location.href = ruta;
+            }, 600);
+        } else {
+            cerrarMenu();
         }
     });
-});
-
-window.addEventListener('popstate', () => {
-    const rutaActual = window.location.pathname.replace('/', '');
-    const elementoDestino = document.getElementById(rutaActual || 'inicio');
-    if (elementoDestino) {
-        elementoDestino.scrollIntoView({ behavior: 'smooth' });
-    }
 });

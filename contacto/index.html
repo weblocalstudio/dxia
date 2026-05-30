@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DXIA - Contacto</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <style>
+        .seccion-contacto-directo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f4fdfb 0%, #e8f7f4 100%);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .tarjeta-contacto {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 168, 143, 0.08);
+            border: 1px solid rgba(0, 168, 143, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tarjeta-contacto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 168, 143, 0.12);
+        }
+
+        .icono-estado {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+        }
+
+        .abierto .icono-estado {
+            background-color: rgba(0, 168, 143, 0.1);
+            color: #00a88f;
+            animation: pulse 2s infinite;
+        }
+
+        .cerrado .icono-estado {
+            background-color: rgba(239, 83, 80, 0.1);
+            color: #ef5350;
+        }
+
+        .tarjeta-contacto h2 {
+            color: #1a3636;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .tarjeta-contacto p {
+            color: #5a7373;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-telefono {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 32px;
+            background-color: #00a88f;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0, 168, 143, 0.2);
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-telefono:hover {
+            background-color: #008f7a;
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 168, 143, 0.3);
+        }
+
+        .btn-telefono:active {
+            transform: scale(0.98);
+        }
+
+        .bloque-horario {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eef2f2;
+        }
+
+        .bloque-horario span {
+            display: block;
+            font-size: 0.85rem;
+            color: #8fa3a3;
+            font-weight: 500;
+        }
+
+        .oculto {
+            display: none !important;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 168, 143, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 168, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 168, 143, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="pantalla-carga" id="loader"></div>
+
+    <div class="capa-borrosa" id="capaBorrosa"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../img/logo_dxia.png" alt="DXIA">
+        </div>
+
+        <nav class="menu-escritorio">
+            <ul>
+                <li><a href="/#inicio">Inicio</a></li>
+                <li><a href="/#equipo">Equipo</a></li>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#formacion">Formación</a></li>
+                <li><a href="/#casos">Casos</a></li>
+                <li><a href="#" style="color: #00bfa5;">Contacto</a></li>
+                <li><a href="/shop/">Tienda</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-hamburguesa" id="btnAbrir">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="cerrar-menu" id="btnCerrar">&times;</div>
+        <ul>
+            <li><a href="/#inicio" onclick="cerrarMenu()">Inicio</a></li>
+            <li><a href="/#equipo" onclick="cerrarMenu()">Equipo</a></li>
+            <li><a href="/#servicios" onclick="cerrarMenu()">Servicios</a></li>
+            <li><a href="/#formacion" onclick="cerrarMenu()">Formación</a></li>
+            <li><a href="/#casos" onclick="cerrarMenu()">Casos</a></li>
+            <li><a href="#" style="color: #00bfa5;" onclick="cerrarMenu()">Contacto</a></li>
+            <li><a href="/shop/" onclick="cerrarMenu()">Tienda</a></li>
+        </ul>
+    </nav>
+    
+    <main class="seccion-contacto-directo">
+        <div class="tarjeta-contacto abierto oculto" id="contenedor-abierto">
+            <div class="icono-estado">📞</div>
+            <h2>¿Necesitas una ecografía?</h2>
+            <p>Estamos disponibles. Llámanos ahora mismo para coordinar el servicio de diagnóstico ambulante en tu clínica.</p>
+            <a href="tel:+34670584567" class="btn-telefono">Llamar: 670 58 45 67</a>
+            <div class="bloque-horario">
+                <span>Horario de atención: Lunes a Viernes de 9:00 a 21:00</span>
+            </div>
+        </div>
+
+        <div class="tarjeta-contacto cerrado oculto" id="contenedor-cerrado">
+            <div class="icono-estado">🕒</div>
+            <h2>Servicio telefónico cerrado</h2>
+            <p>Fuera de nuestro horario comercial no atendemos llamadas. Por favor, ponte en contacto con nosotros cuando volvamos a abrir.</p>
+            <div class="bloque-horario">
+                <span>Nuestro horario: Lunes a Viernes de 9:00 a 21:00</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contenedorAbierto = document.getElementById('contenedor-abierto');
+            const contenedorCerrado = document.getElementById('contenedor-cerrado');
+            
+            const ahora = new Date();
+            const dia = ahora.getDay();
+            const hora = ahora.getHours();
+            
+            const esFinDeSemana = (dia === 0 || dia === 6);
+            const esHorarioLaboral = (hora >= 9 && hora < 21);
+            
+            if (esFinDeSemana || !esHorarioLaboral) {
+                contenedorCerrado.classList.remove('oculto');
+            } else {
+                contenedorAbierto.classList.remove('oculto');
+            }
+        });
+    </script>
+</body>
+</html>

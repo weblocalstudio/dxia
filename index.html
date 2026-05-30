@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DXIA - Diagnóstico por Imagen Ambulante</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
 </head>
 <body>
 
@@ -24,6 +28,8 @@
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#formacion">Formación</a></li>
                 <li><a href="#casos">Casos</a></li>
+                <li><a href="contacto/">Contacto</a></li>
+                <li><a href="shop/">Tienda</a></li>
             </ul>
         </nav>
 
@@ -37,11 +43,13 @@
     <nav class="menu-lateral" id="menuLateral">
         <div class="cerrar-menu" id="btnCerrar">&times;</div>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#formacion">Formación</a></li>
-            <li><a href="#casos">Casos</a></li>
+            <li><a href="#inicio" onclick="cerrarMenu()">Inicio</a></li>
+            <li><a href="#equipo" onclick="cerrarMenu()">Equipo</a></li>
+            <li><a href="#servicios" onclick="cerrarMenu()">Servicios</a></li>
+            <li><a href="#formacion" onclick="cerrarMenu()">Formación</a></li>
+            <li><a href="#casos" onclick="cerrarMenu()">Casos</a></li>
+            <li><a href="contacto/" onclick="cerrarMenu()">Contacto</a></li>
+            <li><a href="shop/" onclick="cerrarMenu()">Tienda</a></li>
         </ul>
     </nav>
 
@@ -56,7 +64,7 @@
 
         <section class="propuesta-verde">
             <h2>Servicio profesional exclusivo para Veterinarios</h2>
-            <p>Informe ecográfico profesional, exclusivo para veterinarios, con interpretación técnica y entrega en PDF en un máximo de 72 horas, prioritaria en casos urgentes.</p>
+            <p>Informe ecográfico profesional, exclusivo para veterinarios, con interpretación técnica y entrega en PDF en un máximo de 24 horas, prioritaria en casos urgentes.</p>
         </section>
 
         <section id="equipo" class="seccion-equipo">
@@ -69,9 +77,9 @@
                     <p class="puesto">Fundadora y Veterinaria Especialista</p>
                 </div>
                 <div class="tarjeta-equipo">
-                    <div class="foto-placeholder"><img src="img/esther.jpg" alt="Esther"></div>
-                    <h3>Esther</h3>
-                    <p class="puesto">Especialista en organizar la información diagnóstica</p>
+                    <div class="foto-placeholder"><img src="img/oliver.jpg" alt="Esther"></div>
+                    <h3>Oliver</h3>
+                    <p class="puesto">Especialista en el diseño y el mantenimiento de esta página web</p>
                 </div>
             </div>
         </section>
@@ -99,7 +107,7 @@
             <h2>Solicitar Tarifas y Servicios</h2>
             <p>Rellena el formulario para recibir nuestro dossier completo de tarifas exclusivo para centros veterinarios.</p>
             
-            <form class="formulario-dxia" onsubmit="event.preventDefault();">
+            <form class="formulario-dxia" onsubmit="event.preventDefault(); alert('!Proximamente!');">
                 <div class="grupo-input">
                     <label for="nombre">Nombre del Veterinario / Clínica *</label>
                     <input type="text" id="nombre" required>

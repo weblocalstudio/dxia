@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DXIA - Tienda</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+</head>
+<body>
+    <div class="pantalla-carga" id="loader"></div>
+
+    <div class="capa-borrosa" id="capaBorrosa"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../img/logo_dxia.png" alt="DXIA">
+        </div>
+
+        <nav class="menu-escritorio">
+            <ul>
+                <li><a href="/#inicio">Inicio</a></li>
+                <li><a href="/#equipo">Equipo</a></li>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#formacion">Formación</a></li>
+                <li><a href="/#casos">Casos</a></li>
+                <li><a href="/contacto/">Contacto</a></li>
+                <li><a href="#" style="color: #00bfa5;">Tienda</a></li>
+            </ul>
+        </nav>
+
+        <button class="btn-hamburguesa" id="btnAbrir">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="cerrar-menu" id="btnCerrar">&times;</div>
+        <ul>
+            <li><a href="/#inicio" onclick="cerrarMenu()">Inicio</a></li>
+            <li><a href="/#equipo" onclick="cerrarMenu()">Equipo</a></li>
+            <li><a href="/#servicios" onclick="cerrarMenu()">Servicios</a></li>
+            <li><a href="/#formacion" onclick="cerrarMenu()">Formación</a></li>
+            <li><a href="/#casos" onclick="cerrarMenu()">Casos</a></li>
+            <li><a href="/contacto/" onclick="cerrarMenu()">Contacto</a></li>
+            <li><a href="#" onclick="cerrarMenu()" style="color: #00bfa5;">Tienda</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="tienda">
+            <h1>Próximamente en nuestra Tienda</h1>
+            <p>Estamos trabajando para ofrecerte productos relacionados con el diagnóstico por imagen veterinario. ¡Mantente atento a nuestras novedades!</p>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>
