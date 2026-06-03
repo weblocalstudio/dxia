@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> DXIA - Tienda</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -16,7 +17,7 @@
     <div class="capa-borrosa" id="capaBorrosa"></div>
 
     <header class="header">
-        <div class="logo">
+        <div class="logo" id="logo">
             <img src="../img/logo_dxia.png" alt="DXIA">
         </div>
 
@@ -54,11 +55,57 @@
 
     <main>
         <section class="tienda">
-            <h1>Próximamente en nuestra Tienda</h1>
-            <p>Estamos trabajando para ofrecerte productos relacionados con el diagnóstico por imagen veterinario. ¡Mantente atento a nuestras novedades!</p>
+            <h1>Bienvenido a la Tienda DXIA</h1>
         </section>
+
+        <div class="cont-shop" id="cont-shop">
+                
+        </div>
+
     </main>
 
+    <footer class="footer" style="position: fixed; right: 0; left: 0; bottom: 0;">
+        <p>&copy; 2026 DXIA - Diagnóstico por Imagen Ambulante. Todos los derechos reservados.</p>
+    </footer>
+
+    <div class="menu-flotante">
+        <div class="botones-redes">
+            <a href="https://www.instagram.com/teresamarti_dxia" class="btn-red instagram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/34670584567" class="btn-red whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    
+        <div class="btn-principal">
+            <i class="fas fa-plus"></i>
+        </div>
+    </div>
+
     <script src="../script.js"></script>
+    <script>
+        const shop = document.getElementById('cont-shop');
+
+        const productos = [
+            {id: 1, nombre: "Bozal", precio: 10, img: "../img/bozal.jpg"},
+        ];
+
+        window.onload = () => {
+            productos.forEach(p => {
+                shop.innerHTML += `
+                <div class="card" data-aos="fade-up">
+                <div class="img-container">
+                ${p.img ? `<img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">` : ''}
+                <span class="img-placeholder" style="${p.img ? 'display:none;' : 'display:block;'}">DXIA</span>
+                </div>
+                <h3>${p.nombre}</h3>
+                <p class="price">${p.precio}€</p>
+                <button class="btn-add" onclick="agregarAlCarrito(${p.id})">Añadir a la Cesta</button>
+                </div>
+                `;
+            })
+        }
+    </script>
 </body>
 </html>

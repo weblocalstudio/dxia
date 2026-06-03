@@ -74,3 +74,61 @@ enlacesMenu.forEach(enlace => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const secciones = document.querySelectorAll('main > section, header');
+    const enlacesMenu = document.querySelectorAll('.menu-escritorio a, .menu-lateral a');
+
+    const opciones = {
+        root: null,
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach(entrada => {
+            if (entrada.isIntersecting) {
+                const idSeccion = entrada.target.getAttribute('id');
+                
+                enlacesMenu.forEach(enlace => {
+                    const href = enlace.getAttribute('href');
+                    
+                    if (href && (href === `#${idSeccion}` || href === `/#${idSeccion}`)) {
+                        enlace.classList.add('activo');
+                    } else {
+                        enlace.classList.remove('activo');
+                    }
+                });
+            }
+        });
+    }, opciones);
+
+    secciones.forEach(seccion => {
+        if (seccion.id) {
+            observador.observe(seccion);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const logo = document.getElementById('logo');
+    const loader = document.getElementById('loader');
+
+    if (logo && loader) {
+        logo.addEventListener('click', () => {
+            cerrarMenu();
+            
+            loader.classList.remove('salir-izquierda');
+            loader.classList.add('preparar-derecha');
+            
+            void loader.offsetWidth; 
+            
+            loader.classList.remove('preparar-derecha');
+            loader.classList.add('entrar-derecha');
+            
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 600);
+        });
+    }
+});
